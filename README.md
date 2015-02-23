@@ -8,9 +8,9 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
 
 ```html
 <!-- bad -->
-<div id=main>
-  <div class=article>
-    <div class=header>
+<div id="main">
+  <div class="article">
+    <div class="header">
       <h1>Blog post</h1>
       <p>Published: <span>21st Feb, 2015</span></p>
     </div>
