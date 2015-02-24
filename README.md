@@ -131,13 +131,13 @@ important factor.
 <meta charset=utf-8>
 <script src=analytics.js></script>
 <title>Hello, world.</title>
-<p>...
+<p>...</p>
 
 <!-- good-->
 <!doctype html>
 <meta charset=utf-8>
 <title>Hello, world.</title>
-<p>...
+<p>...</p>
 <script src=analytics.js></script>
 ```
 
