@@ -47,9 +47,9 @@ element in a wrong way than staying neutral.
 </h1>
 ```
 
-Make sure to use `<article>` for a stand-alone content that can be distributed on its own.  A `<section>` 
-for spliting an `<article>`, document, or page in to different subject areas. An  `<aside>` for content 
-that is not directly related to main content on the page or within an `<article>`.
+Make sure to use an `<article>` for a stand-alone content that can be distributed on its own.  A `<section>` 
+for spliting an `<article>`, document, or page in to different subject areas. An `<aside>` for content 
+that is not directly related to the main content of the page or within an `<article>`.
 
 ```html
 <!-- bad -->
@@ -67,7 +67,7 @@ that is not directly related to main content on the page or within an `<article>
   </section>
   <aside>
     <h2>Sizes</h2>
-    <!-- Content that relate to "My Widget" !-->
+    <!-- Content that relates to "My Widget" !-->
   </aside>
 </div>
 
@@ -86,7 +86,7 @@ that is not directly related to main content on the page or within an `<article>
   </div>
   <section>
     <h2>Sizes</h2>
-    <!-- Content that relate to My Widget" !-->
+    <!-- Content that relates to My Widget" !-->
   </section>
 </article>
 ```
