@@ -161,7 +161,7 @@ div {
 
 ### Box model
 
-Don't change the default box model if you can avoid it.
+Avoid changing the default box model on specific elements if you can avoid it. The box model should be the same for the entire document.
 ```css
 /* bad */
 div {
@@ -173,6 +173,12 @@ div {
 /* good */
 div {
   padding: 10px;
+}
+
+
+/* good */
+* {
+  box-sizing: border-box;
 }
 ```
 
