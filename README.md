@@ -139,7 +139,7 @@ important factor.
 <title>Hello, world.</title>
 <p>...</p>
 
-<!-- good-->
+<!-- good -->
 <!doctype html>
 <meta charset=utf-8>
 <title>Hello, world.</title>
@@ -694,7 +694,6 @@ const plus1 = a => a + 1;
 const mult2 = a => a * 2;
 
 mult2(plus1(5)); // => 12
-
 
 // good
 const pipeline = (...funcs) =>
