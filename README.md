@@ -56,7 +56,7 @@ Keep your code terse. Forget about your old XHTML habits.
 <!doctype html>
 <html lang=en>
   <head>
-    <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Contact</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
