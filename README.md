@@ -471,7 +471,7 @@ Don't use them.
 ```css
 /* bad */
 div {
-  // position: relative;
+  /* position: relative; */
   transform: translateZ(0);
 }
 
