@@ -161,7 +161,10 @@ div {
 
 ### Box model
 
-Don't change the default box model if you can avoid it.
+The box model should ideally be the same for the entire document. A global
+`* { box-sizing: border-box; }` is fine, but don't change the default box model
+on specific elements if you can avoid it.
+
 ```css
 /* bad */
 div {
@@ -403,14 +406,14 @@ div:hover {
 
 ### Units
 
-Use unitless values when you can. Favor pixels over relative units and seconds over
+Use unitless values when you can. Favor `rem` if you use relative units. Prefer seconds over
 milliseconds.
 
 ```css
 /* bad */
 div {
   margin: 0px;
-  font-size: 0.9rem;
+  font-size: .9em;
   line-height: 22px;
   transition: 500ms;
 }
@@ -418,7 +421,7 @@ div {
 /* good */
 div {
   margin: 0;
-  font-size: 15px;
+  font-size: .9rem;
   line-height: 1.5;
   transition: .5s;
 }
