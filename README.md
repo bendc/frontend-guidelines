@@ -62,7 +62,10 @@ Keep your code terse. Forget about your old XHTML habits.
   </head>
   <body>
     <h1>Contact me</h1>
-    <input type=email placeholder=you@email.com required=required />
+    <label>
+      Email address:
+      <input type=email placeholder=you@email.com required=required />
+    </label>
     <script src=main.js type=text/javascript></script>
   </body>
 </html>
@@ -75,7 +78,10 @@ Keep your code terse. Forget about your old XHTML habits.
   <link rel=stylesheet href=style.css>
 
   <h1>Contact me</h1>
-  <input type=email placeholder=you@email.com required>
+  <label>
+    Email address:
+    <input type=email placeholder=you@email.com required>
+  </label>
   <script src=main.js></script>
 </html>
 ```
