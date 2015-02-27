@@ -242,7 +242,7 @@ sibling combinators.
 
 ```css
 /* bad */
-div:first-of-type :last-chid > p ~ *
+div:first-of-type :last-child > p ~ *
 
 /* good */
 div:first-of-type .info
