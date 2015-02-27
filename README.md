@@ -601,7 +601,7 @@ createDivs(5);
 const createDivs = howMany => {
   if (!howMany) return;
   document.body.insertAdjacentHTML("beforeend", "<div></div>");
-  return createDiv(howMany - 1);
+  return createDivs(howMany - 1);
 };
 createDivs(5);
 ```
