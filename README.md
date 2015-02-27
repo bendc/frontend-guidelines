@@ -413,13 +413,13 @@ div:hover {
 ### Units
 
 Use unitless values when you can. Favor `rem` if you use relative units. Prefer seconds over
-milliseconds.
+milliseconds. Don't add leading zeros when using decimals.
 
 ```css
 /* bad */
 div {
   margin: 0px;
-  font-size: .9em;
+  font-size: 0.9em;
   line-height: 22px;
   transition: 500ms;
 }
