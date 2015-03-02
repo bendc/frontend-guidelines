@@ -139,7 +139,7 @@ important factor.
 <title>Hello, world.</title>
 <p>...</p>
 
-<!-- good-->
+<!-- good -->
 <!doctype html>
 <meta charset=utf-8>
 <title>Hello, world.</title>
@@ -242,7 +242,7 @@ sibling combinators.
 
 ```css
 /* bad */
-div:first-of-type :last-chid > p ~ *
+div:first-of-type :last-child > p ~ *
 
 /* good */
 div:first-of-type .info
@@ -601,7 +601,7 @@ createDivs(5);
 const createDivs = howMany => {
   if (!howMany) return;
   document.body.insertAdjacentHTML("beforeend", "<div></div>");
-  return createDiv(howMany - 1);
+  return createDivs(howMany - 1);
 };
 createDivs(5);
 ```
