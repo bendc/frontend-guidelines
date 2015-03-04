@@ -1,10 +1,10 @@
-# Frontend Guidelines
+# 前端指南
 
-## HTML
+# HTML
 
-### Semantics
+### 语义
 
-HTML5 provides us with lots of semantic elements aimed to describe precisely the content. Make sure you benefit from its rich vocabulary.
+HTML5为我们提供了大量语义化元素来准确地描述网页内容。相信你会从它丰富的词汇中受益
 
 ```html
 <!-- bad -->
@@ -31,8 +31,7 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
 </main>
 ```
 
-Make sure you understand the semantic of the elements you're using. It's worse to use a semantic
-element in a wrong way than staying neutral.
+请确保你理解了所使用的元素的语义，错误地使用语义元素比起保守地中立更糟糕。
 
 ```html
 <!-- bad -->
@@ -48,9 +47,9 @@ element in a wrong way than staying neutral.
 </h1>
 ```
 
-### Brevity
+### 简洁性
 
-Keep your code terse. Forget about your old XHTML habits.
+保持代码的简洁，忘掉那些陈旧的 XHTML 书写习惯。
 
 ```html
 <!-- bad -->
@@ -87,15 +86,14 @@ Keep your code terse. Forget about your old XHTML habits.
 </html>
 ```
 
-### Accessibility
+### 可读性
 
-Accessibility shouldn't be an afterthought. You don't have to be a WCAG expert to improve your
-website, you can start immediately by fixing the little things that make a huge difference, such as:
+不要把可读性放在最后考虑，改进网站不需要你是一名WCAG（网页内容亲和力方针）的专家，马上动手做些小改动能给你带来非凡的意义，如下：
 
-* learning to use the `alt` attribute properly
-* making sure your links and buttons are marked as such (no `<div class=button>` atrocities)
-* not relying exclusively on colors to communicate information
-* explicitly labelling form controls
+* 恰当地使用 'alt' 属性
+* 保证按钮和链接像这样标记（不要简单粗暴地使用 `<div class=button>`）
+* 不要专门依赖颜色值来表达信息
+* 明确地为表单控件提供label标记
 
 ```html
 <!-- bad -->
@@ -105,11 +103,9 @@ website, you can start immediately by fixing the little things that make a huge 
 <h1><img alt="My Company, Inc." src="logo.png"></h1>
 ```
 
-### Language
+### 语言
 
-While defining the language and character encoding is optional, it's recommended to always declare
-both at document level, even if they're specified in your HTTP headers. Favor UTF-8 over any other
-character encoding.
+当可以定义语言和字符编码时，建议总是在文档级别声明这两项，尽管它们在HTTP头部中已经指定。比起其他的字符编码，我们更加青睐于使用UTF-8。
 
 ```html
 <!-- bad -->
@@ -124,13 +120,9 @@ character encoding.
 </html>
 ```
 
-### Performance
+### 性能
 
-Unless there's a valid reason for loading your scripts before your content, don't block the
-rendering of your page. If your style sheet is heavy, isolate the styles that are absolutely
-required initially and defer the loading of the secondary declarations in a separate style sheet.
-Two HTTP requests is significantly slower than one, but the perception of speed is the most
-important factor.
+除非有正当理由要在网页内容前加载脚本，否则不要阻塞页面渲染的过程。如果样式表非常庞大，请将页面最初加载时绝对需要的那些样式分离出来，把次要的样式声明放到独立的样式表中延迟加载。两条HTTP请求显然比一条要慢，但加载速度快慢是否可以觉察才是最关键的因素。
 
 ```html
 <!-- bad -->
@@ -150,9 +142,9 @@ important factor.
 
 ## CSS
 
-### Semicolons
+### 分号
 
-While the semicolon is technically a separator in CSS, always treat it as a terminator.
+尽管技术上说CSS中的分号是作为分隔符，但请总把它当成终止符使用。
 
 ```css
 /* bad */
@@ -166,11 +158,9 @@ div {
 }
 ```
 
-### Box model
+### 盒模型
 
-The box model should ideally be the same for the entire document. A global
-`* { box-sizing: border-box; }` is fine, but don't change the default box model
-on specific elements if you can avoid it.
+理想情况中盒模型在整个文档中应当保持一致。全局设置 `* { box-sizing: border-box; }` 是个好主意,但在可以避免的情况下请不要改变特定元素的默认盒模型。
 
 ```css
 /* bad */
@@ -186,11 +176,9 @@ div {
 }
 ```
 
-### Flow
+### 文档流
 
-Don't change the default behavior of an element if you can avoid it. Keep elements in the
-natural document flow as much as you can. For example, removing the white-space below an
-image shouldn't make you change its default display:
+在可以避免的情况下不要改变一个元素的默认行为。尽可能让元素处于正常的文档流中。比如说，移除图片下方的空白不应该通过改变它的默认显示方式来实现：
 
 ```css
 /* bad */
@@ -204,7 +192,7 @@ img {
 }
 ```
 
-Similarly, don't take an element off the flow if you can avoid it.
+同样地，避免让一个元素脱离文档流。
 
 ```css
 /* bad */
@@ -221,10 +209,9 @@ div {
 }
 ```
 
-### Positioning
+### 定位
 
-There are many ways to position elements in CSS but try to restrict yourself to the
-properties/values below. By order of preference:
+用CSS定位元素的方法有很多，请按以下优先级顺序的属性/值对规范自己的写法：
 
 ```
 display: block;
@@ -235,11 +222,9 @@ position: absolute;
 position: fixed;
 ```
 
-### Selectors
+### 选择器
 
-Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
-you want to match when your selector exceeds 3 structural pseudo-classes, descendant or
-sibling combinators.
+简化选择器使其和DOM紧密联系，考虑一下给想要匹配的元素添加一个class，而你的选择器中包含超过三个伪类选择器，后代选择器或相邻兄弟选择器。
 
 ```css
 /* bad */
@@ -249,7 +234,8 @@ div:first-of-type :last-child > p ~ *
 div:first-of-type .info
 ```
 
-Avoid overloading your selectors when you don't need to.
+除非必要，否则不要让选择器过载。
+
 
 ```css
 /* bad */
@@ -263,10 +249,9 @@ img[src$=svg], ul > li:first-child {
 }
 ```
 
-### Specificity
+### 特殊性
 
-Don't make values and selectors hard to override. Minimize the use of `id`'s
-and avoid `!important`.
+不要书写难以覆盖的值和选择器。最小化id选择器的使用，避免使用 `!important`。
 
 ```css
 /* bad */
@@ -286,9 +271,9 @@ and avoid `!important`.
 }
 ```
 
-### Overriding
+### 样式覆盖
 
-Overriding styles makes selectors and debugging harder. Avoid it when possible.
+如果可能请不要对样式进行覆盖，那样会使选择器难以阅读并且增加调试难度。
 
 ```css
 /* bad */
@@ -305,9 +290,9 @@ li + li {
 }
 ```
 
-### Inheritance
+### 继承
 
-Don't duplicate style declarations that can be inherited.
+不要重复书写可以继承的样式声明。
 
 ```css
 /* bad */
@@ -321,10 +306,8 @@ div {
 }
 ```
 
-### Brevity
-
-Keep your code terse. Use shorthand properties and avoid using multiple properties when
-it's not needed.
+### 简洁性
+保持代码的简洁，除非需要，否则请使用速记属性，避免使用多重属性。
 
 ```css
 /* bad */
@@ -346,9 +329,9 @@ div {
 }
 ```
 
-### Language
+### 语言
 
-Prefer English over math.
+多用英文表达式，少用数学表达式。
 
 ```css
 /* bad */
@@ -362,10 +345,9 @@ Prefer English over math.
 }
 ```
 
-### Vendor prefixes
+### 厂商前缀
 
-Kill obsolete vendor prefixes aggressively. If you need to use them, insert them before the
-standard property.
+大胆地扔掉那些废弃的厂商前缀。如果一定要使用，请在标准属性前插入它们。
 
 ```css
 /* bad */
@@ -388,10 +370,9 @@ div {
 }
 ```
 
-### Animations
+### 动画
 
-Favor transitions over animations. Avoid animating other properties than
-`opacity` and `transform`.
+尽量使用transitions而不是animations，除了`opactiy`和`transform`之外的其他属性避免使用动画。
 
 ```css
 /* bad */
@@ -411,10 +392,9 @@ div:hover {
 }
 ```
 
-### Units
+### 单位
 
-Use unitless values when you can. Favor `rem` if you use relative units. Prefer seconds over
-milliseconds.
+如果可以不用书写单位，那就无需书写。使用相对单位时多用`rem`，多用秒（s），少用毫秒（ms）。
 
 ```css
 /* bad */
@@ -434,9 +414,9 @@ div {
 }
 ```
 
-### Colors
+### 颜色值
 
-If you need transparency, use `rgba`. Otherwise, always use the hexadecimal format.
+需要透明度时请用`rgba`，除此以外请总是使用十六进制格式颜色值。
 
 ```css
 /* bad */
@@ -450,9 +430,9 @@ div {
 }
 ```
 
-### Drawing
+### 绘图
 
-Avoid HTTP requests when the resources are easily replicable with CSS.
+在资源可以很简单地用CSS实现时，请这样做减少HTTP请求。
 
 ```css
 /* bad */
@@ -473,7 +453,7 @@ div::before {
 
 ### Hacks
 
-Don't use them.
+不要使用Hacks。
 
 ```css
 /* bad */
@@ -491,11 +471,9 @@ div {
 
 ## JavaScript
 
-### Performance
+### 性能
 
-Favor readability, correctness and expressiveness over performance. JavaScript will basically never
-be your performance bottleneck. Optimize things like image compression, network access and DOM
-reflows instead. If you remember just one guideline from this document, choose this one.
+基本上讲JavaScript不会成为你的性能瓶颈，因此比起性能应当更多考虑可读性，准确性和代码质量。进行如图片压缩，可访问性和DOM重绘等优化工作来取代。如果你只能记住本文档中的一条指南，那记住这条吧。
 
 ```javascript
 // bad (albeit way faster)
@@ -517,9 +495,9 @@ const square = n => n * n;
 const result = arr.filter(isEven).map(square);
 ```
 
-### Statelessness
+### 无状态性
 
-Try to keep your functions pure. All functions should ideally produce no side-effects, use no outside data and return new objects instead of mutating existing ones.
+尝试保持干净的函数代码。一切函数在理想情况下不会产生副作用，不要使用外部数据并且返回新的对象，而不是改变那些已有的对象。
 
 ```javascript
 // bad
@@ -531,9 +509,9 @@ const merge = (...sources) => Object.assign({}, ...sources);
 merge({ foo: "foo" }, { bar: "bar" }); // => { foo: "foo", bar: "bar" }
 ```
 
-### Natives
+### 原生
 
-Rely on native methods as much as possible.
+尽可能地依靠原生方法。
 
 ```javascript
 // bad
@@ -545,9 +523,9 @@ const toArray = (() =>
 )();
 ```
 
-### Coercion
+### 强制转换
 
-Embrace implicit coercion when it makes sense. Avoid it otherwise. Don't cargo-cult.
+隐式强制类型转换如果有用，那么尽情的拥抱它吧，不要搞“货物崇拜”。
 
 ```javascript
 // bad
@@ -557,9 +535,9 @@ if (x === undefined || x === null) { ... }
 if (x == undefined) { ... }
 ```
 
-### Loops
+### 循环
 
-Don't use loops as they force you to use mutable objects. Rely on `array.prototype` methods.
+如果循环强迫你使用可变对象，请不要使用它，应该使用`array.prototype`方法。
 
 ```javascript
 // bad
@@ -580,7 +558,8 @@ const sum = arr =>
 
 sum([1, 2, 3]); // => 6
 ```
-If you can't, or if using `array.prototype` methods is arguably abusive, use recursion.
+
+如果无法实现，或者说使用`array.prototype`方法无疑是一种滥用的做法时，可以使用递归
 
 ```javascript
 // bad
@@ -609,10 +588,10 @@ createDivs(5);
 
 ### Arguments
 
-Forget about the `arguments` object. The rest parameter is always a better option because:
+忘掉`arguments`对象吧，其余的参数才是更好的选择，原因如下：
 
-1. it's named, so it gives you a better idea of the arguments the function is expecting
-2. it's a real array, which makes it easier to use.
+1.拥有命名，因此它可以让人对函数所期望的参数有个更好的了解
+2.实际意义上的数组，使用更加方便
 
 ```javascript
 // bad
@@ -623,9 +602,9 @@ const sortNumbers = () =>
 const sortNumbers = (...numbers) => numbers.sort();
 ```
 
-### Apply
+### Apply方法
 
-Forget about `apply()`. Use the spread operator instead.
+忘掉`apply()`方法，用展开操作符（spread operator）代替。
 
 ```javascript
 const greet = (first, last) => `Hi ${first} ${last}`;
@@ -638,9 +617,9 @@ greet.apply(null, person);
 greet(...person);
 ```
 
-### Bind
+### Bind方法
 
-Don't `bind()` when there's a more idiomatic approach.
+有更符合习惯的方法时不要使用`bind()`方法。
 
 ```javascript
 // bad
@@ -673,9 +652,9 @@ const person = {
 }
 ```
 
-### Higher-order functions
+### 高阶函数
 
-Avoid nesting functions when you don't have to.
+尽量避免嵌套函数。
 
 ```javascript
 // bad
@@ -685,9 +664,9 @@ Avoid nesting functions when you don't have to.
 [1, 2, 3].map(String);
 ```
 
-### Composition
+### 组合
 
-Avoid multiple nested function calls. Use composition instead.
+避免调用多次嵌套的函数，应使用函数组合。
 
 ```javascript
 const plus1 = a => a + 1;
@@ -702,9 +681,9 @@ const addThenMult = pipeline(plus1, mult2);
 addThenMult(5); // => 12
 ```
 
-### Caching
+### 缓存
 
-Cache feature tests, large data structures and any expensive operation.
+对功能测试，大型数据结构以及任何开销较大的操作进行缓存。
 
 ```javascript
 // bad
@@ -723,9 +702,9 @@ const contains = (() =>
 contains(["foo", "bar"], "baz"); // => false
 ```
 
-### Variables
+### 变量
 
-Favor `const` over `let` and `let` over `var`.
+优先使用`const`而不是`let`，优先使用`let`而不是`var`。
 
 ```javascript
 // bad
@@ -738,9 +717,9 @@ const obj = {
 };
 ```
 
-### Conditions
+### 条件语句
 
-Favor IIFE's and return statements over if, else if, else and switch statements.
+优先使用 IIFE（匿名函数自调用）和返回语句，而不是单独的if,else if,else和switch语句。
 
 ```javascript
 // bad
@@ -762,9 +741,9 @@ const grade = (() => {
 })();
 ```
 
-### Object iteration
+### 对象迭代
 
-Avoid `for...in` when you can.
+尽可能地不要使用`for...in`。
 
 ```javascript
 const shared = { foo: "foo" };
@@ -785,10 +764,9 @@ for (var prop in obj) {
 Object.keys(obj).forEach(prop => console.log(prop));
 ```
 
-### Objects as Maps
+### Map对象
 
-While objects have legitimate use cases, maps are usually a better, more powerful choice. When in
-doubt, use a `Map`.
+当objects的使用情况合理时，maps通常是更好更加健壮的选择，有疑惑的话，就使用`Map`吧。
 
 ```javascript
 // bad
@@ -811,9 +789,9 @@ me.set("country", "Belgium");
 me.size; // => 3
 ```
 
-### Curry
+### 柯里化
 
-Currying might have its place in other languages, but avoid it in JavaScript. It makes your code harder to read by introducing a foreign paradigm while the appropriate use cases are extremely unusual.
+柯里化可能在其他语言中有它的地位，但是在JavaScript中请避免这么做。通过引入其他语言的范式而且相应的用例极不常见，这样会使代码难以阅读。
 
 ```javascript
 // bad
@@ -825,9 +803,9 @@ const sum = (a, b) => a + b;
 sum(5, 3); // => 8
 ```
 
-### Readability
+### 可读性
 
-Don't obfuscate the intent of your code by using seemingly smart tricks.
+不要使用一些看似聪明的奇技淫巧来混淆代码的实际目的。
 
 ```javascript
 // bad
@@ -851,9 +829,9 @@ const n = ~~3.14;
 const n = Math.floor(3.14);
 ```
 
-### Code reuse
+### 代码复用
 
-Don't be afraid of creating lots of small, highly composable and reusable functions.
+不要担心写出大量小巧，高可组合性和可复用的函数。
 
 ```javascript
 // bad
@@ -874,9 +852,9 @@ const product = (a, b) => a * b;
 const triple = product.bind(null, 3);
 ```
 
-### Dependencies
+### 依赖性
 
-Minimize dependencies. Third-party is code you don't know. Don't load an entire library for just a couple of methods easily replicable:
+最小化依赖性。第三方库的代码你并不了解。不要为了仅仅几个可以轻易替代的方法加载整个完整的库。
 
 ```javascript
 // bad
@@ -894,3 +872,4 @@ compact(["foo", 0]);
 unique(["foo", "foo"]);
 union(["foo"], ["bar"], ["foo"]);
 ```
+
