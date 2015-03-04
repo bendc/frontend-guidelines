@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This guide outlines some best practices for HTML / CSS / Javascript as it relates to performance, consistency and clarity. It's aimed at developers with at least a basic familiarity of these technologies. It's important the reader understands that these are not de-facto absolute 'musts' within all contexts, but rather a collection of communally agreed upon best practices. 
+This guide outlines some best practices for HTML / CSS / Javascript as it relates to performance, consistency and clarity. It's aimed at developers with (at least) a basic familiarity with these technologies. It's important the reader understands that these are not de-facto absolute 'musts' within all contexts, but rather a collection of communally agreed upon best practices. 
 
 With regards to the JavaScript section it should also be noted that these suggestions use features introduced by ECMAScript 6 (ES6) such as arrow functions, `const`, `Map()`, and others. ES6 is not currently implemented natively in most browsersso in order to use these features you need to use a transpilier such as [Babel.JS](https://babeljs.io/)
 
