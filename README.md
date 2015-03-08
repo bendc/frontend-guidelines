@@ -30,8 +30,8 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
 </main>
 ```
 
-Make sure you understand the semantic of the elements you're using. It's worse to use a semantic
-element in a wrong way than staying neutral.
+Make sure you understand the semantics of the elements you're using. It's worse to use a semantic
+element in the wrong way than staying neutral.
 
 ```html
 <!-- bad -->
