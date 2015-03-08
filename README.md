@@ -43,7 +43,7 @@ element in a wrong way than staying neutral.
 
 <!-- good -->
 <h1>
-  <img alt=Company src=logo.png>
+  <img alt="Company" src="logo.png">
 </h1>
 ```
 
@@ -72,17 +72,17 @@ Keep your code terse. Forget about your old XHTML habits.
 
 <!-- good -->
 <!doctype html>
-<html lang=en>
-  <meta charset=utf-8>
+<html lang="en">
+  <meta charset="utf-8">
   <title>Contact</title>
-  <link rel=stylesheet href=style.css>
+  <link rel="stylesheet" href="style.css">
 
   <h1>Contact me</h1>
   <label>
     Email address:
-    <input type=email placeholder=you@email.com required>
+    <input type="email" placeholder="you@email.com" required>
   </label>
-  <script src=main.js></script>
+  <script src="main.js"></script>
 </html>
 ```
 
@@ -117,8 +117,8 @@ character encoding.
 
 <!-- good -->
 <!doctype html>
-<html lang=en>
-  <meta charset=utf-8>
+<html lang="en">
+  <meta charset="utf-8">
   <title>Hello, world.</title>
 </html>
 ```
@@ -141,10 +141,10 @@ important factor.
 
 <!-- good -->
 <!doctype html>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Hello, world.</title>
 <p>...</p>
-<script src=analytics.js></script>
+<script src="analytics.js"></script>
 ```
 
 ## CSS
