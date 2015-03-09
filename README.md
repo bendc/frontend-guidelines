@@ -73,10 +73,11 @@ Keep your code terse. Forget about your old XHTML habits.
 <!-- good -->
 <!doctype html>
 <html lang=en>
-  <meta charset=utf-8>
-  <title>Contact</title>
-  <link rel=stylesheet href=style.css>
-
+  <head>
+    <meta charset=utf-8>
+    <title>Contact</title>
+    <link rel=stylesheet href=style.css>
+  </head>
   <h1>Contact me</h1>
   <label>
     Email address:
