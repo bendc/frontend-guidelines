@@ -802,7 +802,7 @@ meSize++;
 meSize; // => 3
 
 // good
-const me = Map();
+const me = new Map();
 me.set("name", "Ben");
 me.set("age", 30);
 me.size; // => 2
