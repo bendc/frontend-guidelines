@@ -812,7 +812,8 @@ me.size; // => 3
 
 ### Curry
 
-Currying might have its place in other languages, but avoid it in JavaScript. It makes your code harder to read by introducing a foreign paradigm while the appropriate use cases are extremely unusual.
+Currying is a powerful but foreign paradigm for many developers. Don't abuse it as its appropriate
+use cases are fairly unusual.
 
 ```javascript
 // bad
