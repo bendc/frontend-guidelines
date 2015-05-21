@@ -606,6 +606,8 @@ const createDivs = howMany => {
 createDivs(5);
 ```
 
+Here's a [generic loop function](https://gist.github.com/bendc/6cb2db4a44ec30208e86) making recursion easier to use.
+
 ### Arguments
 
 Forget about the `arguments` object. The rest parameter is always a better option because:
