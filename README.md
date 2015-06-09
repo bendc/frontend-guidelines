@@ -25,7 +25,6 @@
   - [Box model](#box-model)
   - [Flow](#flow)
   - [Positioning](#positioning)
-  - [Selectors](#selectors)
   - [Specificity](#specificity)
   - [Overriding](#overriding)
   - [Inheritance](#inheritance)
@@ -391,24 +390,6 @@ The key factor here is error detection—e.g., a CSS validator stating you have 
 .tweet-header { ... }
 ```
 
-### Media queries
-
-Write CSS to be mobile-first. Let base styles apply to mobile devices, and then write media queries to override the styles for larger screens. Minify use of media queries as much as possible. Minify number of breakpoints as much as possible. Try to stick to around 3 - 4 breakpoints.
-
-Place media queries within CSS declarations. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
-
-Try to avoid closed breakpoints (eg. `@media (min-width: 768px) and  (max-width: 992px ))`. Use only `min-width` whenever possible.
-
-```CSS
-.some-component {
-  /* base styles */
-  background-color: #fff;
-  font-size: 20px;
-  border: 1px solid #ccc;
-  @media (min-width: 768px) { border-width: 2px; }
-  @media (min-width: 992px) { border-width: 3px; }
-}
-
 ### Selectors
 
 * Use classes over generic element tag for optimum rendering performance.
@@ -420,6 +401,32 @@ Additional reading:
 
 * [Scope CSS classes with prefixes](http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/)
 * [Stop the cascade](http://markdotto.com/2012/03/02/stop-the-cascade/)
+
+Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
+you want to match when your selector exceeds 3 structural pseudo-classes, descendant or
+sibling combinators.
+
+```css
+/* bad */
+div:first-of-type :last-chid > p ~ *
+
+/* good */
+div:first-of-type .info
+```
+
+Avoid overloading your selectors when you don't need to.
+
+```css
+/* bad */
+img[src$=svg], ul > li:first-child {
+  opacity: 0;
+}
+
+/* good */
+[src$=svg], ul > :first-child {
+  opacity: 0;
+}
+```
 
 ```
 /* bad */
@@ -438,6 +445,24 @@ span { ... }
 * Develop a consistent commenting hierarchy.
 * Use consistent white space to your advantage when separating sections of code for scanning larger documents.
 * When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.
+
+### Media queries
+
+Write CSS to be mobile-first. Let base styles apply to mobile devices, and then write media queries to override the styles for larger screens. Minify use of media queries as much as possible. Minify number of breakpoints as much as possible. Try to stick to around 3 - 4 breakpoints.
+
+Place media queries within CSS declarations. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
+
+Try to avoid closed breakpoints (eg. `@media (min-width: 768px) and  (max-width: 992px ))`. Use only `min-width` whenever possible.
+
+```CSS
+.some-component {
+  /* base styles */
+  background-color: #fff;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  @media (min-width: 768px) { border-width: 2px; }
+  @media (min-width: 992px) { border-width: 3px; }
+}
 
 ### Box model
 
@@ -506,34 +531,6 @@ position: relative;
 position: sticky;
 position: absolute;
 position: fixed;
-```
-
-### Selectors
-
-Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
-you want to match when your selector exceeds 3 structural pseudo-classes, descendant or
-sibling combinators.
-
-```css
-/* bad */
-div:first-of-type :last-chid > p ~ *
-
-/* good */
-div:first-of-type .info
-```
-
-Avoid overloading your selectors when you don't need to.
-
-```css
-/* bad */
-img[src$=svg], ul > li:first-child {
-  opacity: 0;
-}
-
-/* good */
-[src$=svg], ul > :first-child {
-  opacity: 0;
-}
 ```
 
 ### Specificity
