@@ -64,12 +64,33 @@
 * Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.
 * Nested elements should be indented once (two spaces).
 * Always use either double quotes or no quotes, never single quotes, on attributes.
-* Don't include a trailing slash in self-closing elements—the HTML5 spec says they're optional.
-* Don’t omit optional closing tags (e.g. </li> or </body>).
+* Don't include a trailing slash in self-closing elements—the [HTML5 spec](http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag) says they're optional.
+* Don’t omit optional closing tags (e.g. `</li>` or `</body>`).
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page title</title>
+  </head>
+  <body>
+    <img src="images/company-logo.png" alt="Company">
+    <h1 class="hello-world">Hello, world!</h1>
+  </body>
+</html>
+```
 
 ### HTML5 doctype
 
 Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+</html>
+```
 
 ### Semantics
 
@@ -179,26 +200,28 @@ website, you can start immediately by fixing the little things that make a huge 
 
 HTML attributes should come in this particular order for easier reading of code.
 
-* class
-* id, name
-* data-*
-* src, for, type, href
-* title, alt
-* aria-*, role
+* `class`
+* `id, name`
+* `data-*`
+* `src, for, type, href`
+* `title, alt`
+* `aria-*, role`
 
 Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.
 
 ### Boolean attributes
 
 A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.
-For further reading, consult the WhatWG section on boolean attributes:
 
-```html
-<blockquote>
-  <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
-</blockquote>
-```
-In short, don't add a value.
+For further reading, consult the [WhatWG section on boolean attributes](http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes):
+
+>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.
+
+If you must include the attribute's value, and **you don't need to**, follow this WhatWG guideline:
+
+>If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.
+
+**In short, don't add a value.**
 
 ### Language
 
