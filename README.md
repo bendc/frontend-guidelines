@@ -1,11 +1,15 @@
 # Frontend Guidelines
 
-**Table of Contents** 
+**Table of Contents**
 
 - [HTML](#html)
+  - [Syntax](#syntax)
+  - [Doctype](#html5-doctype)
 	- [Semantics](#semantics)
 	- [Brevity](#brevity)
 	- [Accessibility](#accessibility)
+  - [Attribute order](#attribute-order)
+  - [Boolean Attributes](#boolean-attributes)
 	- [Language](#language)
 	- [Performance](#performance)
 - [CSS](#css)
@@ -48,6 +52,18 @@
 
 ## HTML
 
+### Syntax
+
+* Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.
+* Nested elements should be indented once (two spaces).
+* Always use either double quotes or no quotes, never single quotes, on attributes.
+* Don't include a trailing slash in self-closing elements—the HTML5 spec says they're optional.
+* Don’t omit optional closing tags (e.g. </li> or </body>).
+
+### HTML5 doctype
+
+Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.
+
 ### Semantics
 
 HTML5 provides us with lots of semantic elements aimed to describe precisely the content. Make sure you benefit from its rich vocabulary.
@@ -78,6 +94,8 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
 
 Make sure you understand the semantic of the elements you're using. It's worse to use a semantic
 element in a wrong way than staying neutral.
+
+Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.
 
 ```html
 <!-- bad -->
@@ -149,6 +167,31 @@ website, you can start immediately by fixing the little things that make a huge 
 <!-- good -->
 <h1><img alt="My Company, Inc." src="logo.png"></h1>
 ```
+
+### Attribute Order
+
+HTML attributes should come in this particular order for easier reading of code.
+
+* class
+* id, name
+* data-*
+* src, for, type, href
+* title, alt
+* aria-*, role
+
+Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.
+
+### Boolean attributes
+
+A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.
+For further reading, consult the WhatWG section on boolean attributes:
+
+```html
+<blockquote>
+  <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+</blockquote>
+```
+In short, don't add a value.
 
 ### Language
 
