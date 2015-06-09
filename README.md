@@ -13,7 +13,15 @@
 	- [Language](#language)
 	- [Performance](#performance)
 - [CSS](#css)
-	- [Semicolons](#semicolons)
+  - [Syntax](#syntax)
+  - [Editor preferences](#editor-preferences)
+  - [Preprocessors](#preprocessors)
+  - [Declaration order](#declaration-order)
+  - [Single declarations](#single-declarations)
+  - [Classes](#classes)
+  - [Selectors](#selectors)
+  - [Organization](#organization)
+  - [Media queries](#media-queries)
 	- [Box model](#box-model)
 	- [Flow](#flow)
 	- [Positioning](#positioning)
@@ -21,7 +29,7 @@
 	- [Specificity](#specificity)
 	- [Overriding](#overriding)
 	- [Inheritance](#inheritance)
-	- [Brevity](#brevity)
+	- [Shorthand notation](#shorthand-notation)
 	- [Language](#language)
 	- [Vendor prefixes](#vendor-prefixes)
 	- [Animations](#animations)
@@ -238,21 +246,198 @@ important factor.
 
 ## CSS
 
-### Semicolons
+### Syntax
 
-While the semicolon is technically a separator in CSS, always treat it as a terminator.
+* Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.
+* When grouping selectors, keep individual selectors to a single line.
+* Include one space before the opening brace of declaration blocks for legibility.
+* Place closing braces of declaration blocks on a new line.
+* Include one space after : for each declaration.
+* Each declaration should appear on its own line for more accurate error reporting.
+* End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.
+* Comma-separated property values should include a space after each comma (e.g., box-shadow).
+Don't include spaces after commas within rgb(), rgba(), hsl(), hsla(), or rect() values. This helps differentiate multiple color values (comma, no space) from * multiple property values (comma with space). Also, don't prefix values with a leading zero (e.g., .5 instead of 0.5).
+* Lowercase all hex values, e.g., #fff. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
+* Use shorthand hex values where available, e.g., #fff instead of #ffffff.
+* Quote attribute values in selectors, e.g., input[type="text"]. [They’re only optional in some cases(http://mathiasbynens.be/notes/unquoted-attribute-values#css), and it’s a good practice for consistency.
+* Specify units for zero values (for px values), e.g., margin: 0px; instead of margin: 0;.
+* Prefer px values over rems or ems, but if you must use relative values, use rems over ems.
 
 ```css
 /* bad */
-div {
-  color: red
+.selector, .selector-secondary, .selector[type=text] {
+  padding:15px;
+  margin:0 0 15px;
+  background-color:rgba(0, 0, 0, 0.5);
+  box-shadow:0 1px 2px #CCC,inset 0 1px 0 #FFFFFF
 }
 
 /* good */
-div {
-  color: red;
+.selector,
+.selector-secondary,
+.selector[type="text"] {
+  padding: 15px;
+  margin: 0px 0px 15px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0px 1px 2px #ccc, inset 0px 1px 0px #fff;
 }
 ```
+### Editor preferences
+
+* Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:
+* Use soft-tabs set to two spaces.
+* Trim trailing white space on save.
+* Set encoding to UTF-8.
+* Add new line at end of files.
+
+Consider documenting and applying these preferences to your project's .editorconfig file. For an example, see [the one in Bootstrap](https://github.com/twbs/bootstrap/blob/master/.editorconfig). Learn more about EditorConfig.
+
+### Preprocessors
+
+Hathway uses [Sass](http://sass-lang.com/) for preprocessing CSS. Use the SCSS syntax over the Sass syntax, as it is syntactically closer to CSS and easy to port over if needed.
+
+Learn to use and take advantage of variables and mixins to avoid repetition and make stylesheet-wide updates easier, but not at the expense of readability.
+
+Break your CSS up into partials/components for better organization and readability (and import into your main SCSS file).
+
+Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.
+
+Never process Sass/CSS in the browser. Always compile locally before deploying.
+
+### Declaration order
+
+Related property declarations should be grouped together following the order:
+
+* Positioning
+* Box model
+* Typographic
+* Visual
+
+Positioning comes first because it can remove an element from the normal flow of the document and override box model related styles. The box model comes next as it dictates a component's dimensions and placement.
+
+Everything else takes place inside the component or without impacting the previous two sections, and thus they come last.
+
+```css
+.declaration-order {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Box-model */
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+
+  /* Typography */
+  font: normal 13px "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+
+  /* Misc */
+  opacity: 1;
+}
+```
+### Single declarations
+
+In instances where a rule set includes only one declaration, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.
+
+The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.
+
+```css
+/* Single declarations on one line */
+.span1 { width: 60px; }
+.span2 { width: 140px; }
+.span3 { width: 220px; }
+
+/* Multiple declarations, one per line */
+.sprite {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  background-image: url(../images/sprite.png);
+}
+.icon { background-position: 0px 0px; }
+.icon-home { background-position: 0px -20px; }
+.icon-account { background-position: 0px -40px; }
+```
+
+### Classes
+
+* Avoid excessive and arbitrary shorthand notation. .btn is useful for button, but .s doesn't mean anything.
+* Keep classes as short and succinct as possible.
+* Use meaningful names; use structural or purposeful names over presentational.
+* Prefix classes based on the closest parent or base class.
+
+```css
+/* bad */
+.t { ... }
+.red { ... }
+.header { ... }
+
+/* good */
+.tweet { ... }
+.important { ... }
+.tweet-header { ... }
+```
+
+### Media queries
+
+Write CSS to be mobile-first. Let base styles apply to mobile devices, and then write media queries to override the styles for larger screens. Minify use of media queries as much as possible. Minify number of breakpoints as much as possible. Try to stick to around 3 - 4 breakpoints.
+
+Place media queries within CSS declarations. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.
+
+Try to avoid closed breakpoints (eg. `@media (min-width: 768px) and  (max-width: 992px ))`. Use only `min-width` whenever possible.
+
+```CSS
+.some-component {
+  /* base styles */
+  background-color: #fff;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  @media (min-width: 768px) { border-width: 2px; }
+  @media (min-width: 992px) { border-width: 3px; }
+}
+
+### Selectors
+
+* Use classes over generic element tag for optimum rendering performance.
+* Avoid using several attribute selectors (e.g., [class^="..."]) on commonly occuring components. Browser performance is known to be impacted by these.
+* Keep selectors short and strive to limit the number of elements in each selector to three.
+* Scope classes to the closest parent only when necessary (e.g., when not using prefixed classes).
+
+Additional reading:
+
+* [Scope CSS classes with prefixes](http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/)
+* [Stop the cascade](http://markdotto.com/2012/03/02/stop-the-cascade/)
+
+```
+/* bad */
+span { ... }
+.page-container #stream .stream-item .tweet .tweet-header .username { ... }
+.avatar { ... }
+
+/* good */
+.avatar { ... }
+.tweet-header .username { ... }
+.tweet .avatar { ... }
+```
+### Organization
+
+* Organize sections of code by component.
+* Develop a consistent commenting hierarchy.
+* Use consistent white space to your advantage when separating sections of code for scanning larger documents.
+* When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.
 
 ### Box model
 
@@ -408,29 +593,36 @@ div {
   text-shadow: 0 1px 0 #fff;
 }
 ```
+### Shorthand notation
 
-### Brevity
+Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:
 
-Keep your code terse. Use shorthand properties and avoid using multiple properties when
-it's not needed.
+* padding
+* margin
+* font
+* background
+* border
+* border-radius
+
+Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand properties often leads to sloppier code with unnecessary overrides and unintended side effects.
+The Mozilla Developer Network has a great article on [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) for those unfamiliar with notation and behavior.
 
 ```css
 /* bad */
-div {
-  transition: all 1s;
-  top: 50%;
-  margin-top: -10px;
-  padding-top: 5px;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  padding-left: 10px;
+.element {
+  margin: 0 0 10px;
+  background: red;
+  background: url("image.jpg");
+  border-radius: 3px 3px 0 0;
 }
 
 /* good */
-div {
-  transition: 1s;
-  top: calc(50% - 10px);
-  padding: 5px 10px 20px;
+.element {
+  margin-bottom: 10px;
+  background-color: red;
+  background-image: url("image.jpg");
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 ```
 
@@ -453,7 +645,7 @@ Prefer English over math.
 ### Vendor prefixes
 
 Kill obsolete vendor prefixes aggressively. If you need to use them, insert them before the
-standard property.
+standard property. Use of [Autoprefixer](https://github.com/postcss/autoprefixer) will speed up your workflow in this regard greatly. Make it part of your build process.
 
 ```css
 /* bad */
@@ -501,13 +693,13 @@ div:hover {
 
 ### Units
 
-Use unitless values when you can. Favor `rem` if you use relative units. Prefer seconds over
-milliseconds.
+Favor px over rem or em. Favor `rem` if you use relative units. Prefer seconds over
+milliseconds. Use unitless values for things like line-height.
 
 ```css
 /* bad */
 div {
-  margin: 0px;
+  margin: 0;
   font-size: .9em;
   line-height: 22px;
   transition: 500ms;
@@ -515,8 +707,8 @@ div {
 
 /* good */
 div {
-  margin: 0;
-  font-size: .9rem;
+  margin: 0px;
+  font-size: 13px;
   line-height: 1.5;
   transition: .5s;
 }
