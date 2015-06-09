@@ -13,7 +13,7 @@
   - [Language](#language)
   - [Performance](#performance)
 - [CSS](#css)
-  - [Syntax](#syntax)
+  - [CSS Syntax](#css-syntax)
   - [Editor preferences](#editor-preferences)
   - [Preprocessors](#preprocessors)
   - [Declaration order](#declaration-order)
@@ -245,7 +245,7 @@ important factor.
 
 ## CSS
 
-### Syntax
+### CSS Syntax
 
 * Use soft tabs with two spaces—they're the only way to guarantee code renders the same in any environment.
 * When grouping selectors, keep individual selectors to a single line.
@@ -463,6 +463,7 @@ Try to avoid closed breakpoints (eg. `@media (min-width: 768px) and  (max-width:
   @media (min-width: 768px) { border-width: 2px; }
   @media (min-width: 992px) { border-width: 3px; }
 }
+```
 
 ### Box model
 
