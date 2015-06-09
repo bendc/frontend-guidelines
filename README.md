@@ -251,16 +251,16 @@ important factor.
 * When grouping selectors, keep individual selectors to a single line.
 * Include one space before the opening brace of declaration blocks for legibility.
 * Place closing braces of declaration blocks on a new line.
-* Include one space after : for each declaration.
+* Include one space after `:` for each declaration.
 * Each declaration should appear on its own line for more accurate error reporting.
 * End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.
-* Comma-separated property values should include a space after each comma (e.g., box-shadow).
-Don't include spaces after commas within rgb(), rgba(), hsl(), hsla(), or rect() values. This helps differentiate multiple color values (comma, no space) from * multiple property values (comma with space). Also, don't prefix values with a leading zero (e.g., .5 instead of 0.5).
-* Lowercase all hex values, e.g., #fff. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
-* Use shorthand hex values where available, e.g., #fff instead of #ffffff.
-* Quote attribute values in selectors, e.g., input[type="text"]. [They’re only optional in some cases(http://mathiasbynens.be/notes/unquoted-attribute-values#css), and it’s a good practice for consistency.
-* Specify units for zero values (for px values), e.g., margin: 0px; instead of margin: 0;.
-* Prefer px values over rems or ems, but if you must use relative values, use rems over ems.
+* Comma-separated property values should include a space after each comma (e.g., `box-shadow`).
+Don't include spaces after commas *within* `rgb(), rgba(), hsl(), hsla(),` or `rect()` values. This helps differentiate multiple color values (comma, no space) from * multiple property values (comma with space). Also, don't prefix values with a leading zero (e.g., `.5` instead of `0.5`).
+* Lowercase all hex values, e.g., `#fff`. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
+* Use shorthand hex values where available, e.g., `#fff` instead of `#ffffff`.
+* Quote attribute values in selectors, e.g., `input[type="text"]`. [They’re only optional in some cases(http://mathiasbynens.be/notes/unquoted-attribute-values#css), and it’s a good practice for consistency.
+* Specify units for zero values (for px values), e.g., `margin: 0px;` instead of `margin: 0;`.
+* Prefer `px` values over `rems` or `ems`, but if you must use relative values, use `rems` over `ems`.
 
 ```css
 /* bad */
@@ -289,7 +289,7 @@ Don't include spaces after commas within rgb(), rgba(), hsl(), hsla(), or rect()
 * Set encoding to UTF-8.
 * Add new line at end of files.
 
-Consider documenting and applying these preferences to your project's .editorconfig file. For an example, see [the one in Bootstrap](https://github.com/twbs/bootstrap/blob/master/.editorconfig). Learn more about EditorConfig.
+Consider documenting and applying these preferences to your project's `.editorconfig` file. For an example, see [the one in Bootstrap](https://github.com/twbs/bootstrap/blob/master/.editorconfig). Learn more about [EditorConfig](http://editorconfig.org/).
 
 ### Preprocessors
 
@@ -349,7 +349,7 @@ Everything else takes place inside the component or without impacting the previo
 ```
 ### Single declarations
 
-In instances where a rule set includes only one declaration, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.
+In instances where a rule set includes **only one declaration**, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.
 
 The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.
 
@@ -373,7 +373,7 @@ The key factor here is error detection—e.g., a CSS validator stating you have 
 
 ### Classes
 
-* Avoid excessive and arbitrary shorthand notation. .btn is useful for button, but .s doesn't mean anything.
+* Avoid excessive and arbitrary shorthand notation. `.btn` is useful for `button,` but `.s` doesn't mean anything.
 * Keep classes as short and succinct as possible.
 * Use meaningful names; use structural or purposeful names over presentational.
 * Prefix classes based on the closest parent or base class.
@@ -393,7 +393,7 @@ The key factor here is error detection—e.g., a CSS validator stating you have 
 ### Selectors
 
 * Use classes over generic element tag for optimum rendering performance.
-* Avoid using several attribute selectors (e.g., [class^="..."]) on commonly occuring components. Browser performance is known to be impacted by these.
+* Avoid using several attribute selectors (e.g., `[class^="..."]`) on commonly occuring components. Browser performance is known to be impacted by these.
 * Keep selectors short and strive to limit the number of elements in each selector to three.
 * Scope classes to the closest parent only when necessary (e.g., when not using prefixed classes).
 
@@ -493,14 +493,10 @@ image shouldn't make you change its default display:
 
 ```css
 /* bad */
-img {
-  display: block;
-}
+img {  display: block; }
 
 /* good */
-img {
-  vertical-align: middle;
-}
+img { vertical-align: middle; }
 ```
 
 Similarly, don't take an element off the flow if you can avoid it.
@@ -549,12 +545,8 @@ and avoid `!important`.
 }
 
 /* good */
-.foo.bar {
-  color: green;
-}
-.foo {
-  color: red;
-}
+.foo.bar { color: green; }
+.foo { color: red; }
 ```
 
 ### Overriding
@@ -571,9 +563,7 @@ li:first-child {
 }
 
 /* good */
-li + li {
-  visibility: hidden;
-}
+li + li { visibility: hidden; }
 ```
 
 ### Inheritance
@@ -587,20 +577,18 @@ div h1, div p {
 }
 
 /* good */
-div {
-  text-shadow: 0 1px 0 #fff;
-}
+div { text-shadow: 0 1px 0 #fff; }
 ```
 ### Shorthand notation
 
 Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:
 
-* padding
-* margin
-* font
-* background
-* border
-* border-radius
+* `padding`
+* `margin`
+* `font`
+* `background`
+* `border`
+* `border-radius`
 
 Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand properties often leads to sloppier code with unnecessary overrides and unintended side effects.
 The Mozilla Developer Network has a great article on [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) for those unfamiliar with notation and behavior.
@@ -635,9 +623,7 @@ Prefer English over math.
 }
 
 /* good */
-:nth-child(odd) {
-  transform: rotate(1turn);
-}
+:nth-child(odd) { transform: rotate(1turn); }
 ```
 
 ### Vendor prefixes
@@ -691,7 +677,7 @@ div:hover {
 
 ### Units
 
-Favor px over rem or em. Favor `rem` if you use relative units. Prefer seconds over
+Favor `px` over `rem` or `em`. Favor `rem` if you use relative units. Prefer seconds over
 milliseconds. Use unitless values for things like line-height.
 
 ```css
