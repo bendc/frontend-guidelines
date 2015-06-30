@@ -488,6 +488,28 @@ div {
 }
 ```
 
+### Avoid Inline styles
+
+Don't use them. You will find it hard to maintain the styles.
+
+```html
+<!-- Bad -->
+<div style="position: relative; height: 100px; width: 100px"></div>
+```
+
+```html
+<!-- Good -->
+<div class="custom-class"></div>
+```
+
+```css
+.custom-class {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+```
+
 ## JavaScript
 
 ### Performance
