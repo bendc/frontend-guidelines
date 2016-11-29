@@ -47,6 +47,50 @@ element in a wrong way than staying neutral.
 </h1>
 ```
 
+Make sure to use an `<article>` for a stand-alone content that can be distributed on its own.  A `<section>` 
+for spliting an `<article>`, document, or page in to different subject areas. An `<aside>` for content 
+that is not directly related to the main content of the page or within an `<article>`.
+
+```html
+<!-- bad -->
+<div>
+  <section>
+    <h1>My Widget</h1>
+    <article>
+      <h2>Features</h2>
+      <!-- Related Content !-->
+    </article>
+    <article>
+      <h2>Latest News</h1>
+      <!-- Unrelated Content !-->
+    <article>
+  </section>
+  <aside>
+    <h2>Sizes</h2>
+    <!-- Content that relates to "My Widget" !-->
+  </aside>
+</div>
+
+<!-- good -->
+<article>
+  <div>
+    <h1>My Widget</h1>
+    <section>
+      <h2>Features</h2>
+      <!-- Related Content !-->
+    </section>
+    <aside>
+      <h2>Latest News</h2>
+      <!-- Unrelated Content !-->
+    </aside>
+  </div>
+  <section>
+    <h2>Sizes</h2>
+    <!-- Content that relates to My Widget" !-->
+  </section>
+</article>
+```
+
 ### Brevity
 
 Keep your code terse. Forget about your old XHTML habits.
