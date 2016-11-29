@@ -490,6 +490,9 @@ div {
 
 ## JavaScript
 
+###### Note: 
+The arrow function is Ecmascript 6, the new version of Javascript. It has not been released yet and most features are not implemented in any Browser, but you can "transpile" it to ES5 (the current Javascript) using [Babel](https://babeljs.io) or [Traceur](https://github.com/google/traceur-compiler).
+
 ### Performance
 
 Favor readability, correctness and expressiveness over performance. JavaScript will basically never
