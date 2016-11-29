@@ -363,8 +363,9 @@ Prefer English over math.
 
 ### Vendor prefixes
 
-Kill obsolete vendor prefixes aggressively. If you need to use them, insert them before the
-standard property.
+Don't use vendor prefixes at all. You should use special tools that will make it
+instead of you. [autoprefixer](https://www.npmjs.com/package/autoprefixer) is a great
+tool that allows you to control which versions of browsers you need to support.
 
 ```css
 /* bad */
@@ -381,7 +382,6 @@ div {
 
 /* good */
 div {
-  -webkit-transform: scale(2);
   transform: scale(2);
   transition: 1s;
 }
