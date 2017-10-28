@@ -49,7 +49,7 @@ element in a wrong way than staying neutral.
 
 ### Brevity
 
-Keep your code terse & and keep semantics in mind.
+Keep your code terse & keep semantics in mind.
 
 ```html
 <!-- bad -->
