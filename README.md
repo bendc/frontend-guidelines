@@ -49,28 +49,10 @@ element in a wrong way than staying neutral.
 
 ### Brevity
 
-Keep your code terse. Forget about your old XHTML habits.
+Keep your code terse & keep semantics in mind.
 
 ```html
 <!-- bad -->
-<!doctype html>
-<html lang=en>
-  <head>
-    <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
-    <title>Contact</title>
-    <link rel=stylesheet href=style.css type=text/css />
-  </head>
-  <body>
-    <h1>Contact me</h1>
-    <label>
-      Email address:
-      <input type=email placeholder=you@email.com required=required />
-    </label>
-    <script src=main.js type=text/javascript></script>
-  </body>
-</html>
-
-<!-- good -->
 <!doctype html>
 <html lang=en>
   <meta charset=utf-8>
@@ -83,6 +65,22 @@ Keep your code terse. Forget about your old XHTML habits.
     <input type=email placeholder=you@email.com required>
   </label>
   <script src=main.js></script>
+</html>
+
+<!-- good -->
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+    <title>Contact</title>
+    <link rel=stylesheet href=style.css type=text/css />
+  </head>
+  <body>
+    <h1>Contact me</h1>
+    <label for=email>Email address:</label>
+    <input id=email type=email placeholder=you@email.com required=required />
+    <script src=main.js type=text/javascript></script>
+  </body>
 </html>
 ```
 
