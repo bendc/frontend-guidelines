@@ -708,11 +708,9 @@ const contains = (arr, value) =>
 contains(["foo", "bar"], "baz"); // => false
 
 // good
-const contains = (() =>
-  Array.prototype.includes
-    ? (arr, value) => arr.includes(value)
-    : (arr, value) => arr.some(el => el === value)
-)();
+const contains = Array.prototype.includes
+  ? (arr, value) => arr.includes(value)
+  : (arr, value) => arr.some(el => el === value);
 contains(["foo", "bar"], "baz"); // => false
 ```
 
