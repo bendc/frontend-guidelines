@@ -8,9 +8,9 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
 
 ```html
 <!-- bad -->
-<div id="main">
-  <div class="article">
-    <div class="header">
+<div id=main>
+  <div class=article>
+    <div class=header>
       <h1>Blog post</h1>
       <p>Published: <span>21st Feb, 2015</span></p>
     </div>
@@ -23,7 +23,7 @@ HTML5 provides us with lots of semantic elements aimed to describe precisely the
   <article>
     <header>
       <h1>Blog post</h1>
-      <p>Published: <time datetime="2015-02-21">21st Feb, 2015</time></p>
+      <p>Published: <time datetime=2015-02-21>21st Feb, 2015</time></p>
     </header>
     <p>…</p>
   </article>
@@ -98,10 +98,10 @@ website, you can start immediately by fixing the little things that make a huge 
 
 ```html
 <!-- bad -->
-<h1><img alt="Logo" src="logo.png"></h1>
+<h1><img alt=Logo src=logo.png></h1>
 
 <!-- good -->
-<h1><img alt="My Company, Inc." src="logo.png"></h1>
+<h1><img alt=Company src=logo.png></h1>
 ```
 
 ### Language
@@ -222,17 +222,9 @@ div {
 
 ### Positioning
 
-There are many ways to position elements in CSS but try to restrict yourself to the
-properties/values below. By order of preference:
-
-```
-display: block;
-display: flex;
-position: relative;
-position: sticky;
-position: absolute;
-position: fixed;
-```
+There are many ways to position elements in CSS. Favor modern layout specifications
+such as Flexbox and Grid, and avoid removing elements from the normal document flow, for example
+example with `position: absolute`.
 
 ### Selectors
 
@@ -888,7 +880,7 @@ _.union(["foo"], ["bar"], ["foo"]);
 
 // good
 const compact = arr => arr.filter(el => el);
-const unique = arr => [...Set(arr)];
+const unique = arr => [...new Set(arr)];
 const union = (...arr) => unique([].concat(...arr));
 
 compact(["foo", 0]);
