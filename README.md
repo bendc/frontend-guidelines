@@ -1,5 +1,7 @@
 # Frontend Guidelines
 
+[Chinese](https://github.com/dyygtfx/front-end-best-practices) 
+
 ## HTML
 
 ### Semantics
