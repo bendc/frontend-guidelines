@@ -104,11 +104,14 @@ website, you can start immediately by fixing the little things that make a huge 
 <h1><img alt=Company src=logo.png></h1>
 ```
 
-### Language
+### Language & character encoding
 
-While defining the language and character encoding is optional, it's recommended to always declare
-both at document level, even if they're specified in your HTTP headers. Favor UTF-8 over any other
-character encoding.
+While defining the language is optional, it's recommended to always declare
+it on the root element.
+
+The HTML standard requires that pages use the UTF-8 character encoding.
+It has to be declared, and although it can be declared in the Content-Type HTTP header,
+it is recommended to always declare it at the document level.
 
 ```html
 <!-- bad -->
