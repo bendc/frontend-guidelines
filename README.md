@@ -385,7 +385,7 @@ div {
 ### Animations
 
 Favor transitions over animations. Avoid animating other properties than
-`opacity` and `transform`.
+`opacity` and `transform`. Prefer using 3d transform values over regular ones for performance on slower devices, like `translate3d` instead of `transform`.
 
 ```css
 /* bad */
