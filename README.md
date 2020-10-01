@@ -229,6 +229,8 @@ There are many ways to position elements in CSS. Favor modern layout specificati
 such as Flexbox and Grid, and avoid removing elements from the normal document flow, for example
 with `position: absolute`.
 
+position: absolute will work only in the presence of position: relative
+
 ### Selectors
 
 Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
