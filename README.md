@@ -588,7 +588,7 @@ createDivs(5);
 // bad
 const createDivs = howMany =>
   [...Array(howMany)].forEach(() =>
-    document.body.insertAdjacentHTML("beforeend", "<div></div>")
+    document.body.insertAdjacentHTML("beforeend", "<div></div>");
   );
 createDivs(5);
 
