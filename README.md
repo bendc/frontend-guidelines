@@ -131,7 +131,7 @@ it is recommended to always declare it at the document level.
 Unless there's a valid reason for loading your scripts before your content, don't block the
 rendering of your page. If your style sheet is heavy, isolate the styles that are absolutely
 required initially and defer the loading of the secondary declarations in a separate style sheet.
-Two HTTP requests is significantly slower than one, but the perception of speed is the most
+Two HTTP requests are significantly slower than one, but the perception of speed is the most
 important factor.
 
 ```html
@@ -232,7 +232,7 @@ with `position: absolute`.
 ### Selectors
 
 Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
-you want to match when your selector exceeds 3 structural pseudo-classes, descendant or
+you want to match when your selector exceeds 3 structural pseudo-classes, descendants or
 sibling combinators.
 
 ```css
